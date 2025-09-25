@@ -1,0 +1,67 @@
+Anotações
+
+
+Todo tipo de infraestrutura pode ser representado com IaC ?
+
+Resposta: Não. Nem toda infraestrutura pode ser representada por IaC até 
+	o momento. Quando isso acontece utilizamos os Provisioners.
+
+
+
+O que são os Provisioners? (Adequação Técnica)
+
+Resposta: Os Provisioners (provisionadores) são uma forma de executar ações ou scripts em um recurso (local ou remoto) após ele ser criado. Devem ser utilizados como última opção, já que gerencia saindo do terraform, ele gerencia a maquina local, assim podendo ocasionar erros inesperados. Ele é um modulo externo, que não é controlado pelo terraform.
+
+
+
+Terraform Local Provisioner. 
+
+Resposta: local-exec do Terraform invoca um executável localmente na máquina que está executando o Terraform, logo após um recurso ser criado. O principal objetivo do local-exec é interagir com o recurso recém-criado a partir da sua máquina local. Ele age como uma "ponte", permitindo que você execute um script ou comando que dependa de um atributo do recurso (como seu endereço IP ou nome) assim que ele estiver disponível. Note que mesmo o recurso seja criado, quando o provisioner está sendo executando, não há garantia que ele está no estado operável. Pode ser executado através de diversas maneiras: Perl, bash (Linux) e PowerShell (Windows). É bastante útil quando o usuário precisa de recursos na nuvem e algo local em sua máquina. Exemplo, ter um servidor web na nuvem, e o seu banco de dados ser local, em uma empresa.
+
+
+Terraform File Provisioner.
+
+Resposta: É usado para copiar arquivos ou diretórios da máquina que está executando o Terraform para um recurso recém-criado. Pense nele como a "empresa de mudanças" do Terraform. Após o Terraform construir a "casa" (o recurso, como uma instância EC2), o file provisioner é responsável por levar suas "caixas" (seus arquivos locais) para dentro dela. 
+
+Aviso Importante: Use Como Último Recurso. Assim como outros provisioners, o file provisioner deve ser evitado em ambientes de produção e usado apenas como último recurso.
+
+
+
+Terraform Remote Provisioner.
+
+Resposta: É usado para executar um script ou um conjunto de comandos em um recurso remoto (como uma instância EC2) após ele ser criado. Pense nele como o "técnico de instalação". Depois que o Terraform constrói a "casa" (o servidor), o remote-exec "entra na casa" (conecta-se via SSH) para instalar o software e fazer as configurações necessárias.
+
+Para funcionar, o remote-exec é totalmente dependente de um bloco de connection, que informa ao Terraform como se conectar à máquina remota.
+
+Requisito: Um bloco connection configurado com um método de acesso (geralmente ssh para Linux).
+
+Ação: Executa os comandos fornecidos na seção inline ou executa um arquivo de script especificado em script.
+
+
+Em resumo, o provisioner é um tipo de conexão. Ademais , o provioner NÃO aparece na chamada do comando terraform plan. Ele é uma chamada de conexão externo e é de minha responsabilidade, não do terraform.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
