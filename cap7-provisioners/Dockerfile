@@ -47,6 +47,9 @@ RUN mkdir -p -m 755 /etc/apt/keyrings && \
 # Criar a pasta /IaC-AWS dentro do container
 RUN mkdir /lab3
 
+# Realiza um mapeamento volume local para o conteiner docker
+VOLUME lab3
+
 # Copiar os arquivos local para o diretorio de trabalho no contêiner
 COPY . /cap7-provisioners/Lab3
 
