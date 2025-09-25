@@ -43,13 +43,13 @@ RUN mkdir -p -m 755 /etc/apt/keyrings && \
     apt-get install gh -y
 
 # Criar a pasta /IaC-AWS dentro do container
-RUN mkdir /IaC-AWS
+RUN mkdir /Lab3
 
 # Copiar os arquivos local para o diretorio de trabalho no contêiner
-COPY . /IaC-AWS/
+COPY . /Lab3
 
 # Definir o diretório de trabalho padrão
-WORKDIR /IaC-AWS
+WORKDIR /Lab3
 
 # Definir o comando padrão para execução quando o container for iniciado
 CMD ["/bin/bash"]

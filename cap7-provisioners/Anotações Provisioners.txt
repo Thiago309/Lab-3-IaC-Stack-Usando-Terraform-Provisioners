@@ -46,7 +46,8 @@ Em resumo, o provisioner é um tipo de conexão. Ademais , o provioner NÃO apar
 
 
 
-
+RUN mkdir /lab3
+VOLUME /lab3
 
 
 
