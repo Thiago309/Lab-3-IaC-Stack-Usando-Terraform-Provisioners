@@ -7,7 +7,7 @@ LABEL maintainer="Thiago_Vinicius"
 # Definir a versão do Terraform ultima versão sem ser beta (evita bugs e erros)
 ENV TERRAFORM_VERSION=1.13.3
 
-# Atualizar os pacotes do sistema e instalar dependências necessarias (wget, curl, unzip, tree para visualização, gpg para a chave do GitHub)
+# Atualizar os pacotes do sistema e instalar dependências necessarias: wget, curl, unzip, tree para visualização, gpg para a chave do GitHub, openssh (inicia uma conexão SSH), iputils-ping (realiza teste de conexão em um servidor remoto)
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     wget \
@@ -16,6 +16,8 @@ RUN apt-get update && \
     tree \
     gpg \
     vim \
+    openssh-client \
+    iputils-ping \
     ca-certificates && \
     rm -rf /var/lib/apt/lists/*
 
@@ -43,13 +45,13 @@ RUN mkdir -p -m 755 /etc/apt/keyrings && \
     apt-get install gh -y
 
 # Criar a pasta /IaC-AWS dentro do container
-RUN mkdir /Lab3
+RUN mkdir /lab3
 
 # Copiar os arquivos local para o diretorio de trabalho no contêiner
 COPY . /cap7-provisioners/Lab3
 
 # Definir o diretório de trabalho padrão
-WORKDIR /Lab3
+WORKDIR /lab3
 
 # Definir o comando padrão para execução quando o container for iniciado
 CMD ["/bin/bash"]
