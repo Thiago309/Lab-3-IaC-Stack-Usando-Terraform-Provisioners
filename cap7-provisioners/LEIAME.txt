@@ -8,12 +8,12 @@ cd "/mnt/c/Users/karer/OneDrive/Documentos/GitHub/Lab-3-IaC-Stack-Usando-Terrafo
 
 # Execute o comando abaixo para criar a imagem Docker
 
-docker build -t dsa-terraform-image:lab3 .
+docker build -t cap7-provisioners-image:lab3 .
 
 
 # Execute o comando abaixo para criar o container Docker
 
-docker run -dit --name dsa-lab3 -v /mnt/c/Users/karer/OneDrive/Documentos/GitHub/Lab-3-IaC-Stack-Usando-Terraform-Provisioners/cap7-provisioners/Lab3:/lab3 dsa-terraform-image:lab3
+docker run -dit --name dsa-lab3 -v /mnt/c/Users/karer/OneDrive/Documentos/GitHub/Lab-3-IaC-Stack-Usando-Terraform-Provisioners/cap7-provisioners/Lab3:/Lab3 cap7-provisioners-image:lab3
 
 NOTA: No Windows você deve substituir ./Lab3 pelo caminho completo da pasta, por exemplo: C:\DSA\Cap07\Lab3
 

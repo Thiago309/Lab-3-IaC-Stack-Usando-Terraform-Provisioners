@@ -46,7 +46,7 @@ RUN mkdir -p -m 755 /etc/apt/keyrings && \
 RUN mkdir /Lab3
 
 # Copiar os arquivos local para o diretorio de trabalho no contêiner
-COPY . /Lab3
+COPY . /cap7-provisioners/Lab3
 
 # Definir o diretório de trabalho padrão
 WORKDIR /Lab3
