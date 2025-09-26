@@ -1,0 +1,4 @@
+Utilizando terraform para criar uma instancia EC2 na plataforma 
+AWS com o conceito de provisioners, e iniciar uma conexão SSH
+neste ambiente utilizando par de chaves.
+

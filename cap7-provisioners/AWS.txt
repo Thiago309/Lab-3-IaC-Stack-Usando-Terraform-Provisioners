@@ -1,0 +1,2 @@
+Par de chaves (login): São credenciais necessarias para 
+ter acesso remoto as instancias EC2'S.
