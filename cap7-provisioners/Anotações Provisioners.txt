@@ -39,30 +39,3 @@ Ação: Executa os comandos fornecidos na seção inline ou executa um arquivo d
 
 
 Em resumo, o provisioner é um tipo de conexão. Ademais , o provioner NÃO aparece na chamada do comando terraform plan. Ele é uma chamada de conexão externo e é de minha responsabilidade, não do terraform.
-
-
-
-
-
-
-
-RUN mkdir /lab3
-VOLUME /lab3
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

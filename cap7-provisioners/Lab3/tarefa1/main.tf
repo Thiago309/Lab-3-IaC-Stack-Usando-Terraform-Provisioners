@@ -14,5 +14,8 @@ resource "aws_instance" "dsa_instance" {
   provisioner "local-exec" {
     # echo é o comando que imprime na tela. O $ retorna o valor da variavel. Salva o valor em um arquivo .txt
     command = "echo ${aws_instance.dsa_instance.public_ip} > ip_dsa_instance.txt"
+    # Lembrar do conceito do provisioner. O terraform não tem noção que o arquivo (ip_dsa_instance.txt) existe.
+    # pois o provisioner é um tipo de ponte que permite a execução de comandos na maquina local para os recursos/serviços na nuvem.
+    # O terraform é só responsavel por aquilo que esta dentro dos meus arquivos .tf 
   }
 }
