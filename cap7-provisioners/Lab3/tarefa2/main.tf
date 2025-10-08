@@ -17,7 +17,7 @@ resource "aws_instance" "dsa_instance" {
   provisioner "remote-exec" {
     
     # Bloco 1: Lista de comandos shell linux.
-            # 1º Comando: Atualiza o Sistema Operacional.
+            # 1º Comando: Atualiza o Sistema Operacional. -y (significa yes, confirma automaticamente as perguntas)
     inline = ["sudo yum update -y", 
             # 2º Comando: Instala o Apache 2 (httpd) que é um serviço web.
               "sudo yum install httpd -y", 
