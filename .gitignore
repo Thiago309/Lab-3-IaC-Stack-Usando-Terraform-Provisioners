@@ -19,3 +19,9 @@ cap7-provisioners/Lab3/tarefa4/.terraform.lock.hcl
 cap7-provisioners/Lab3/tarefa4/.terraform/providers/registry.terraform.io/hashicorp/aws/6.15.0/linux_amd64/LICENSE.txt
 cap7-provisioners/Lab3/tarefa4/.terraform/providers/registry.terraform.io/hashicorp/aws/6.15.0/linux_amd64/terraform-provider-aws_v6.15.0_x5
 cap7-provisioners/Lab3/tarefa4/terraform.tfstate
+cap7-provisioners/Lab3/tarefa5/terraform.tfstate.backup
+cap7-provisioners/Lab3/tarefa4/terraform.tfstate.backup
+cap7-provisioners/Lab3/tarefa5/.terraform/providers/registry.terraform.io/hashicorp/aws/6.15.0/linux_amd64/LICENSE.txt
+cap7-provisioners/Lab3/tarefa5/.terraform.lock.hcl
+cap7-provisioners/Lab3/tarefa5/.terraform/providers/registry.terraform.io/hashicorp/aws/6.15.0/linux_amd64/terraform-provider-aws_v6.15.0_x5
+cap7-provisioners/Lab3/tarefa5/terraform.tfstate
