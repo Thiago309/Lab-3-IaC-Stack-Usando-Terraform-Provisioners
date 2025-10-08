@@ -43,7 +43,7 @@ resource "aws_instance" "dsa_instance" {
   key_name = "dsa-lab3"
 
   tags = {
-    Name = "lab3-t2-terraform"
+    Name = "lab3-t3-terraform"
   }
 
   # Criando um provisioner do tipo remote-exec, para realizar uma conexão SSH e 
