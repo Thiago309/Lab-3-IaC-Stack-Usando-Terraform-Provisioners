@@ -1,0 +1,6 @@
+Passos realizados na tarefa 2:
+
+Criação do par de chaves no ambiente AWS.
+Criação do Web Server.
+Conexão via SSH.
+Automatizando a criação da infraestrutura.
