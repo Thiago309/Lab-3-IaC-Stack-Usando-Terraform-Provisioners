@@ -50,7 +50,7 @@ resource "aws_instance" "dsa_instance" {
     connection {
       type     = "ssh"
       user     = "ec2-user"
-      private_key = file("dsa-lab3.pem")
+      private_key = file("../tarefa3/dsa-lab3.pem")
       host     = self.public_ip
     }
   }
@@ -64,7 +64,7 @@ resource "aws_instance" "dsa_instance" {
     connection {
       type     = "ssh"
       user     = "ec2-user"
-      private_key = file("dsa-lab3.pem")
+      private_key = file("../tarefa3/dsa-lab3.pem")
       host     = self.public_ip
     }
   }
