@@ -40,8 +40,11 @@ resource "aws_instance" "dsa_instance" {
     Name = "lab3-t4-terraform"
   }
 
+# Esta utilizando o arquivo .sh para executar os comandos dentro da instancia EC2. Também informa o destino do arquivo.
   provisioner "file" {
     source      = "dsa_script.sh"
+    # O diretorio /tmp/ é uma pasta padrão do linux. Ela existe independente de qualquer instancia linux que eu criar.
+    # Por isso que é mais seguro por esse arquivo dentro dessa pasta temporaria.
     destination = "/tmp/dsa_script.sh"
 
     connection {
@@ -54,6 +57,8 @@ resource "aws_instance" "dsa_instance" {
 
   provisioner "remote-exec" {
     
+    # [chmod] é o comando do linux que altera a permissão de privilegio de arquivos e pastas na instancia.
+    #  O [+x] permite o privilegio de execução do script contido no arquivo dsa_script.sh
     inline = ["chmod +x /tmp/dsa_script.sh", "/tmp/dsa_script.sh"]
 
     connection {
