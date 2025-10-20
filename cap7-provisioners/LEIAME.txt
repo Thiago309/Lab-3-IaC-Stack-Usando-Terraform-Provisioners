@@ -22,3 +22,4 @@ NOTA: No Windows você deve substituir ./Lab3 pelo caminho completo da pasta, po
 
 terraform version
 aws --version
+
