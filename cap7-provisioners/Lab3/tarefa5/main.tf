@@ -30,13 +30,31 @@ resource "aws_security_group" "sg_permite_http" {
 
 }
 
+variable "instance_count" {
+  description = "Número de instâncias EC2 a serem criadas"
+  type        = number
+  default     = 3
+}
+
+variable "create_instance" {
+  description = "Flag para criar ou não a instância"
+  type        = bool
+  default     = true
+}
+
 resource "aws_instance" "dsa_instance" {
+
+  count = var.create_instance ? var.instance_count : 0 
 
   ami = "ami-0a0d9cf81c479446a"
   
   instance_type = "t2.micro"
   
   vpc_security_group_ids = [aws_security_group.sg_permite_http.id]
+
+  tags = {
+    Name = "WebServer-${count.index}"
+  }
 
   user_data = <<-EOF
               #!/bin/bash
@@ -46,10 +64,4 @@ resource "aws_instance" "dsa_instance" {
               sudo systemctl enable httpd
               sudo bash -c 'echo Criando o Quarto Web Server com Terraform na DSA > /var/www/html/index.html'
               EOF
-
-  tags = {
-    Name = "lab3-t5-terraform"
-  }
 }
-
-

@@ -23,3 +23,5 @@ NOTA: No Windows você deve substituir ./Lab3 pelo caminho completo da pasta, po
 terraform version
 aws --version
 
+# Testar a conexão com a AWS 
+aws s3 ls | awk '{print $NF}'
